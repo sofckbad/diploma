@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     #region Fields
 
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject ps;
+    [SerializeField] private GameObject ps1;
     [SerializeField] private float force;
 
     #endregion
@@ -21,14 +23,17 @@ public class Projectile : MonoBehaviour
     {
         var enemy = col.transform.GetComponent<EnemyController>();
 
-        if (enemy != null)
+        if (enemy?.gameObject.CompareTag("water") ?? false)
         {
             Simulation.Schedule<EnemyDeath>().enemy = enemy;
+            enemy.ApplyDamage(1);
+            Instantiate(ps1).transform.position = transform.position;
         }
 
         rb.velocity = Vector2.zero;
+        Instantiate(ps).transform.position = transform.position;
         Destroy(gameObject);
-        if(col.transform.gameObject.CompareTag("Box"))
+        if (col.transform.gameObject.CompareTag("Box"))
         {
             Destroy(col.transform.gameObject);
         }

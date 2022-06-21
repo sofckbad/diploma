@@ -157,8 +157,8 @@ public class PlayerController : KinematicObject
         projectile.Throw(v);
     }
     
-    public void Disable()
+    public void Disable(bool disabled = true)
     {
-        controlEnabled = false;
+        controlEnabled = !disabled;
     }
 }

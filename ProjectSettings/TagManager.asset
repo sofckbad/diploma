@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TutorialRequirement
   - Box
+  - FxTemporaire
+  - water
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - player
   - enemy
   - shh
-  - 
+  - box
   - 
   - 
   - 
@@ -42,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Fx
+    uniqueID: 332720305
     locked: 0
   - name: Ui
     uniqueID: 1945651599

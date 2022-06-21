@@ -54,6 +54,7 @@ namespace Platformer.Mechanics
 
         public void ApplyDamage(float damage)
         {
+            control.Animator.SetTrigger("death");
         }
     }
 }

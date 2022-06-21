@@ -30,7 +30,6 @@ namespace Platformer.Gameplay
                     enemyHealth.Decrement();
                     if (!enemyHealth.IsAlive)
                     {
-                        Schedule<EnemyDeath>().enemy = enemy;
                         player.Bounce(2);
                     }
                     else

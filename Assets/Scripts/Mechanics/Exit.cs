@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class Exit : MonoBehaviour
@@ -16,6 +17,7 @@ public class Exit : MonoBehaviour
 
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private List<ParticleWithDelay> particles;
+    [SerializeField] private UnityEvent onex;
     private bool isWin;
 
     #endregion
@@ -42,6 +44,7 @@ public class Exit : MonoBehaviour
                 }
                 isWin = true;
                 col.transform.GetComponent<PlayerController>().Disable();
+                onex.Invoke();
             }
         }
     }
